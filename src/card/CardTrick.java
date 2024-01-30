@@ -4,6 +4,7 @@
  */
 package card;
 
+import java.util.Scanner;
 /**
  * A class that fills a magic hand of 7 cards with random Card Objects
  * and then asks the user to pick a card and searches the array of cards
@@ -18,15 +19,43 @@ public class CardTrick {
         
         for (int i=0; i<magicHand.length; i++)
         {
-            Card c = new Card();
-            //c.setValue(insert call to random number generator here)
-            //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            Card k = new Card();
+            
+            k.setValue((int) (Math.random() * 13) + 1); 
+            k.setSuit(Card.SUITS[(int) (Math.random() * 4)]); 
+            magicHand[i] = k;
+ 
+            Card luckyCard1 = new Card();
+            luckyCard1.setValue(2);
+            luckyCard1.setSuit("Clubs");
+            magicHand[6] = luckyCard1; 
+
         }
         
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
-        // add one luckcard hard code 2,clubs
-    }
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter card number (1-13): ");
+        int userValue = scanner.nextInt();
+        scanner.nextLine(); 
+        System.out.print("Enter card suits (Hearts, Diamonds, Spades, Clubs): ");
+        String userSuit = scanner.nextLine();
+
+        
+        Card userCards = new Card();
+        userCards.setValue(userValue);
+        userCards.setSuit(userSuit);
+
+        boolean cardInHand = false;
+        for (Card magicCard : magicHand) {
+            if (magicCard.getValue() == userCards.getValue() && magicCard.getSuit().equalsIgnoreCase(userCards.getSuit())) {
+                cardInHand = true;
+                break;
+            }
+        }
+
+        if (cardInHand) {
+            System.out.println("Congratulations! Your Selected card is in the magic hand!");
+        } else {
+            System.out.println("Sorry, your Selected card is not in the magic hand.");
+        }
     
-}
+    }}
