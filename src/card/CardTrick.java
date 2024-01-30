@@ -31,31 +31,4 @@ public class CardTrick {
             magicHand[6] = luckyCard1; 
 
         }
-        
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter card number (1-13): ");
-        int userValue = scanner.nextInt();
-        scanner.nextLine(); 
-        System.out.print("Enter card suits (Hearts, Diamonds, Spades, Clubs): ");
-        String userSuit = scanner.nextLine();
-
-        
-        Card userCards = new Card();
-        userCards.setValue(userValue);
-        userCards.setSuit(userSuit);
-
-        boolean cardInHand = false;
-        for (Card magicCard : magicHand) {
-            if (magicCard.getValue() == userCards.getValue() && magicCard.getSuit().equalsIgnoreCase(userCards.getSuit())) {
-                cardInHand = true;
-                break;
-            }
-        }
-
-        if (cardInHand) {
-            System.out.println("Congratulations! Your Selected card is in the magic hand!");
-        } else {
-            System.out.println("Sorry, your Selected card is not in the magic hand.");
-        }
-    
     }}
