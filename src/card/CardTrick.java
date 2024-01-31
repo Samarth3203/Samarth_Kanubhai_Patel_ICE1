@@ -17,6 +17,17 @@ public class CardTrick {
     
     public static void main(String[] args)
     {
+
+      
+             
+        System.out.println("Hearts 8");
+        System.out.println("Clubs 6");
+        System.out.println("Diamonds 4");
+        System.out.println("Hearts 11");
+        System.out.println("Clubs 3");
+        System.out.println("Spades 4");
+            
+            
         Card[] magicHand = new Card[7];
         
         for (int i=0; i<magicHand.length; i++)
@@ -60,4 +71,5 @@ public class CardTrick {
         } else {
             System.out.println("Sorry, your Selected card is not in the magic hand.");
         }
-    }}
+    }
+    }
